@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=generator_automatics.X
+PROJECTNAME=generator_automatics
 
 # Active Configuration
 DEFAULTCONF=default
