@@ -41,7 +41,7 @@ void PIN_MANAGER_Initialize()
     /* DIR Registers Initialization */
     DDRB = 0x00;
     DDRC = 0x00;
-    DDRD = 0x00;
+    DDRD = 0x60;
 
     /* OUT Registers Initialization */
     PORTB = 0x00;
