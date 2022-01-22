@@ -43,8 +43,8 @@ int8_t CPUINT_Initialize()
     //SM IDLE; SE disabled; 
     SMCR = 0x00;
     
-    //IVSEL disabled; IVCE enabled; 
-    MCUCR = 0x01;
+    //IVSEL disabled; IVCE disabled; 
+    MCUCR = 0x00;
 
     ENABLE_INTERRUPTS(); 
         
