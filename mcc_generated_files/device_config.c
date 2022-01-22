@@ -39,7 +39,7 @@
 
 FUSES = 
 {
-	.extended = 0x07,
-	.high = 0xDF,
+	.extended = 0x04,
+	.high = 0x5F,
 	.low = 0xD7,
 }; 
