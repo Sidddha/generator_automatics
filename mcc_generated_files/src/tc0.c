@@ -91,10 +91,10 @@ ISR(TIMER0_OVF_vect)
 int8_t TC0_Initialize()
 {
     //Compare A
-    OCR0A = 0x8;
+    OCR0A = 0x00;
 
     //Compare B
-    OCR0B = 0x05;
+    OCR0B = 0x00;
 
     //Count
     TCNT0 = 0x00;
