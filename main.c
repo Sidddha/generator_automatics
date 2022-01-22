@@ -31,6 +31,7 @@ int main(void)
     /* Initializes MCU, drivers and middleware */
     SYSTEM_Initialize();
 
+    /* Replace with your application code */
     while (1){
     }
 }
