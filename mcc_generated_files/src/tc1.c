@@ -22,9 +22,9 @@
 */
 
 #include "../include/tc1.h"
-
-uint16_t captured_events = 0;
-uint16_t current_rpm = 0;
+#include "../include/pin_manager.h"
+volatile uint16_t captured_events = 0;
+volatile uint16_t current_rpm = 0;
 
 void TC1_COMPAIsrCallback(void);
 void (*TC1_COMPA_isr_cb)(void) = &TC1_COMPAIsrCallback;
@@ -37,8 +37,10 @@ void (*TC1_CAPT_isr_cb)(void) = &TC1_CAPTIsrCallback;
 
 void TC1_COMPAIsrCallback(void)
 {
-    current_rpm = captured_events * 60;
-    captured_events = 0;
+//    TC1_DisableInterrupt();
+//    current_rpm = captured_events * 60;
+//    captured_events = 0;
+//    TC1_EnableInterrupt();
 }
 
 void TC1_COMPBIsrCallback(void)
@@ -48,12 +50,18 @@ void TC1_COMPBIsrCallback(void)
 
 void TC1_OVFIsrCallback(void)
 {
-    //Add your ISR code here
+
 }
 
 void TC1_CAPTIsrCallback(void)
 {
     captured_events++;
+    if (TIFR1 & (1 << OCF1A))
+    {
+        current_rpm = captured_events * 60;
+        captured_events = 0;
+        TIFR1 |= (0 << OCF1A);
+    }
 }
 
 void TC1_SetOVFIsrCallback(TC1_cb_t cb)
