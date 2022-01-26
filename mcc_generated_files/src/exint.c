@@ -31,59 +31,27 @@
 */
 
 
-#include "mcc.h"
+#include "../include/exint.h"
 
-/**
- * Initializes MCU, drivers and middleware in the project
-**/
-void SYSTEM_Initialize(void)
+int8_t EXINT_0_Initialize()
 {
-    PIN_MANAGER_Initialize();
-    CPU_Initialize();
-    WDT_Initialize();
-    TC1_Initialize();
-    CPUINT_Initialize();
-<<<<<<< HEAD
-=======
-    TC0_Initialize();
->>>>>>> main
-}
-
-ISR(WDT_vect)
-{
-    /* Insert your WDT interrupt handling code here */
-
-    /* The interrupt flag has to be cleared manually */
-    WDTCSR &= ~(1<<WDIF);
-}
-
-/**
- * \brief Initialize wdt interface
- */
- 
-int8_t WDT_Initialize()
-{
-    //
-    WDTCSR = 0x00;
-
-	return 0;
-}
-/**
- * \brief Initialize cpu interface
- */
-
-int8_t CPU_Initialize()
-{
-    //
-    CLKPR = 0x00;
-        
-    //
-    SMCR = 0x00;  
-        
-    //
-    MCUCR = 0x00; 
-        
+    //ISC1 VAL_0x03; ISC0 VAL_0x03; 
+   EICRA = 0x0F;
     
+    //INT1 disabled; INT0 disabled; 
+    EIMSK = 0x00;
+           
     return 0;
+}
 
+ISR(INT0_vect)
+{
+    // Clear the interrupt flag
+    EIFR &= ~(1 << INTF0);
+}
+
+ISR(INT1_vect)
+{
+    /* The interrupt flag has to be cleared manually */
+   EIFR &= ~(1 << INTF1);
 }

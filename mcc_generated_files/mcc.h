@@ -42,6 +42,10 @@ extern "C" {
 #include "include/pin_manager.h"
 #include "include/cpuint.h"
 #include "include/tc1.h"
+<<<<<<< HEAD
+=======
+#include "include/tc0.h"
+>>>>>>> main
 #include "config/clock_config.h"
 
 /**

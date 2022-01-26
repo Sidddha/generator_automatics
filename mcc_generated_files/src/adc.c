@@ -31,59 +31,85 @@
 */
 
 
-#include "mcc.h"
+#include "../include/adc.h"
+
+
+/** Function pointer to callback function called by IRQ.
+    NULL=default value: No callback function is to be used.
+*/
+adc_irq_cb_t ADC_cb = NULL;
 
 /**
- * Initializes MCU, drivers and middleware in the project
-**/
-void SYSTEM_Initialize(void)
+ * \brief Initialize ADC interface
+ */
+int8_t ADC_Initialize()
 {
-    PIN_MANAGER_Initialize();
-    CPU_Initialize();
-    WDT_Initialize();
-    TC1_Initialize();
-    CPUINT_Initialize();
-<<<<<<< HEAD
-=======
-    TC0_Initialize();
->>>>>>> main
+    //REFS VAL_0x03; ADLAR disabled; MUX ADC0; 
+    ADMUX = 0xC0;
+
+    //ACME disabled; ADTS VAL_0x07; 
+    ADCSRB = 0x07;
+
+    //ADEN enabled; ADSC disabled; ADATE disabled; ADIF disabled; ADIE disabled; ADPS VAL_0x01; 
+    ADCSRA = 0x81;
+
+    return 0;
 }
 
-ISR(WDT_vect)
+void ADC_Enable()
 {
-    /* Insert your WDT interrupt handling code here */
+	ADCSRA |= (1 << ADEN);
+}
+
+void ADC_Disable()
+{
+	ADCSRA &= ~(1 << ADEN);
+}
+
+void ADC_StartConversion(adc_0_channel_t channel)
+{
+	ADMUX &= ~0x0f;
+	ADMUX |= channel;
+	ADCSRA |= (1 << ADSC);
+}
+
+bool ADC_IsConversionDone()
+{
+	return ((ADCSRA & (1 << ADIF)));
+}
+
+adc_result_t ADC_GetConversionResult(void)
+{
+	return (ADCL | ADCH << 8);
+}
+
+adc_result_t ADC_GetConversion(adc_0_channel_t channel)
+{
+	adc_result_t res;
+
+	ADC_StartConversion(channel);
+	while (!ADC_IsConversionDone());
+	res = ADC_GetConversionResult();
+	ADCSRA |= (1 << ADIF);
+	return res;
+}
+
+uint8_t ADC_GetResolution()
+{
+	return 10;
+}
+
+void ADC_RegisterCallback(adc_irq_cb_t f)
+{
+	ADC_cb = f;
+}
+
+ISR(ADC_vect)
+{
+    /* Insert your ADC result ready interrupt handling code here */
 
     /* The interrupt flag has to be cleared manually */
-    WDTCSR &= ~(1<<WDIF);
-}
-
-/**
- * \brief Initialize wdt interface
- */
- 
-int8_t WDT_Initialize()
-{
-    //
-    WDTCSR = 0x00;
-
-	return 0;
-}
-/**
- * \brief Initialize cpu interface
- */
-
-int8_t CPU_Initialize()
-{
-    //
-    CLKPR = 0x00;
-        
-    //
-    SMCR = 0x00;  
-        
-    //
-    MCUCR = 0x00; 
-        
-    
-    return 0;
-
+    if (ADC_cb != NULL) {
+		ADC_cb();
+	}
 }

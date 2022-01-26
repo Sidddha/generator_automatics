@@ -1,3 +1,4 @@
+
 <config configName="default" projectName="generator_automatics" configVersion="1.1" device="ATmega328P" deviceLibraryClass="com.microchip.mcc.mcu8.Mcu8AVRPeripheralLibrary" coreVersion="5.4.0">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
@@ -22,6 +23,7 @@
          <string>class com.microchip.mcc.mcu8.systemManager.SystemManager</string>
       </entry>
       <entry>
+
          <string>TC1</string>
          <string>class com.microchip.mcc.mcu8.modules.tc16.avr8.TC16</string>
       </entry>
@@ -772,7 +774,9 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Interrupt Manager" name="interruptVectorTable"/>
+
          <value>{&quot;type&quot;:&quot;tableDynamicControls&quot;,&quot;key&quot;:&quot;interruptVectorTable&quot;,&quot;dataArray&quot;: [{&quot;Module&quot;: {&quot;id&quot;:&quot;Module_rowCount_0&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TC1&quot;,&quot;value&quot;:&quot;TC1&quot;}},&quot;Interrupt&quot;: {&quot;id&quot;:&quot;Interrupt_rowCount_0&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TIMER4_COMPA&quot;,&quot;value&quot;:&quot;TIMER4_COMPA&quot;}},&quot;Enable&quot;: {&quot;id&quot;:&quot;Enable_rowCount_0&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;false&quot;,&quot;value&quot;:&quot;false&quot;}}},{&quot;Module&quot;: {&quot;id&quot;:&quot;Module_rowCount_1&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TC1&quot;,&quot;value&quot;:&quot;TC1&quot;}},&quot;Interrupt&quot;: {&quot;id&quot;:&quot;Interrupt_rowCount_1&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TIMER3_OVF&quot;,&quot;value&quot;:&quot;TIMER3_OVF&quot;}},&quot;Enable&quot;: {&quot;id&quot;:&quot;Enable_rowCount_1&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;false&quot;,&quot;value&quot;:&quot;false&quot;}}},{&quot;Module&quot;: {&quot;id&quot;:&quot;Module_rowCount_2&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TC1&quot;,&quot;value&quot;:&quot;TC1&quot;}},&quot;Interrupt&quot;: {&quot;id&quot;:&quot;Interrupt_rowCount_2&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TIMER4_COMPB&quot;,&quot;value&quot;:&quot;TIMER4_COMPB&quot;}},&quot;Enable&quot;: {&quot;id&quot;:&quot;Enable_rowCount_2&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;false&quot;,&quot;value&quot;:&quot;false&quot;}}},{&quot;Module&quot;: {&quot;id&quot;:&quot;Module_rowCount_3&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TC1&quot;,&quot;value&quot;:&quot;TC1&quot;}},&quot;Interrupt&quot;: {&quot;id&quot;:&quot;Interrupt_rowCount_3&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TIMER4_CAPT&quot;,&quot;value&quot;:&quot;TIMER4_CAPT&quot;}},&quot;Enable&quot;: {&quot;id&quot;:&quot;Enable_rowCount_3&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;false&quot;,&quot;value&quot;:&quot;false&quot;}}},{&quot;Module&quot;: {&quot;id&quot;:&quot;Module_rowCount_4&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;WDT&quot;,&quot;value&quot;:&quot;WDT&quot;}},&quot;Interrupt&quot;: {&quot;id&quot;:&quot;Interrupt_rowCount_4&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;WDT&quot;,&quot;value&quot;:&quot;WDT&quot;}},&quot;Enable&quot;: {&quot;id&quot;:&quot;Enable_rowCount_4&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;false&quot;,&quot;value&quot;:&quot;false&quot;}}},{&quot;Module&quot;: {&quot;id&quot;:&quot;Module_rowCount_5&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TC1&quot;,&quot;value&quot;:&quot;TC1&quot;}},&quot;Interrupt&quot;: {&quot;id&quot;:&quot;Interrupt_rowCount_5&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TIMER1_CAPT&quot;,&quot;value&quot;:&quot;TIMER1_CAPT&quot;}},&quot;Enable&quot;: {&quot;id&quot;:&quot;Enable_rowCount_5&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;false&quot;,&quot;value&quot;:&quot;false&quot;}}},{&quot;Module&quot;: {&quot;id&quot;:&quot;Module_rowCount_6&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TC1&quot;,&quot;value&quot;:&quot;TC1&quot;}},&quot;Interrupt&quot;: {&quot;id&quot;:&quot;Interrupt_rowCount_6&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TIMER1_COMPB&quot;,&quot;value&quot;:&quot;TIMER1_COMPB&quot;}},&quot;Enable&quot;: {&quot;id&quot;:&quot;Enable_rowCount_6&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;false&quot;,&quot;value&quot;:&quot;false&quot;}}},{&quot;Module&quot;: {&quot;id&quot;:&quot;Module_rowCount_7&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TC1&quot;,&quot;value&quot;:&quot;TC1&quot;}},&quot;Interrupt&quot;: {&quot;id&quot;:&quot;Interrupt_rowCount_7&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TIMER3_CAPT&quot;,&quot;value&quot;:&quot;TIMER3_CAPT&quot;}},&quot;Enable&quot;: {&quot;id&quot;:&quot;Enable_rowCount_7&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;false&quot;,&quot;value&quot;:&quot;false&quot;}}},{&quot;Module&quot;: {&quot;id&quot;:&quot;Module_rowCount_8&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TC1&quot;,&quot;value&quot;:&quot;TC1&quot;}},&quot;Interrupt&quot;: {&quot;id&quot;:&quot;Interrupt_rowCount_8&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TIMER1_COMPA&quot;,&quot;value&quot;:&quot;TIMER1_COMPA&quot;}},&quot;Enable&quot;: {&quot;id&quot;:&quot;Enable_rowCount_8&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;false&quot;,&quot;value&quot;:&quot;false&quot;}}},{&quot;Module&quot;: {&quot;id&quot;:&quot;Module_rowCount_9&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TC1&quot;,&quot;value&quot;:&quot;TC1&quot;}},&quot;Interrupt&quot;: {&quot;id&quot;:&quot;Interrupt_rowCount_9&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TIMER4_OVF&quot;,&quot;value&quot;:&quot;TIMER4_OVF&quot;}},&quot;Enable&quot;: {&quot;id&quot;:&quot;Enable_rowCount_9&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;false&quot;,&quot;value&quot;:&quot;false&quot;}}},{&quot;Module&quot;: {&quot;id&quot;:&quot;Module_rowCount_10&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TC1&quot;,&quot;value&quot;:&quot;TC1&quot;}},&quot;Interrupt&quot;: {&quot;id&quot;:&quot;Interrupt_rowCount_10&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TIMER3_COMPA&quot;,&quot;value&quot;:&quot;TIMER3_COMPA&quot;}},&quot;Enable&quot;: {&quot;id&quot;:&quot;Enable_rowCount_10&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;false&quot;,&quot;value&quot;:&quot;false&quot;}}},{&quot;Module&quot;: {&quot;id&quot;:&quot;Module_rowCount_11&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TC1&quot;,&quot;value&quot;:&quot;TC1&quot;}},&quot;Interrupt&quot;: {&quot;id&quot;:&quot;Interrupt_rowCount_11&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TIMER3_COMPB&quot;,&quot;value&quot;:&quot;TIMER3_COMPB&quot;}},&quot;Enable&quot;: {&quot;id&quot;:&quot;Enable_rowCount_11&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;false&quot;,&quot;value&quot;:&quot;false&quot;}}},{&quot;Module&quot;: {&quot;id&quot;:&quot;Module_rowCount_12&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TC1&quot;,&quot;value&quot;:&quot;TC1&quot;}},&quot;Interrupt&quot;: {&quot;id&quot;:&quot;Interrupt_rowCount_12&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;TIMER1_OVF&quot;,&quot;value&quot;:&quot;TIMER1_OVF&quot;}},&quot;Enable&quot;: {&quot;id&quot;:&quot;Enable_rowCount_12&quot;,&quot;data&quot;:{&quot;text&quot;:&quot;true&quot;,&quot;value&quot;:&quot;true&quot;}}}] } </value>
+
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Interrupt Manager" name="isGlobalInterruptEnable"/>
@@ -1668,7 +1672,9 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="System Module" name="ClockSource"/>
+
          <value>EXTFSXTAL_1KCK_14CK_65MS</value>
+
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="System Module" name="ExternalClock"/>
@@ -2020,11 +2026,13 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="System Module" registerAlias="HIGH"/>
+
          <value>223</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="System Module" registerAlias="LOW"/>
          <value>199</value>
+
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="EXTENDED" settingAlias="BODLEVEL"/>
@@ -2048,7 +2056,9 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="HIGH" settingAlias="RSTDISBL"/>
+
          <value>enabled</value>
+
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="HIGH" settingAlias="SPIEN"/>
@@ -2068,6 +2078,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="LOW" settingAlias="SUT_CKSEL"/>
+
          <value>EXTFSXTAL_1KCK_14CK_65MS</value>
       </entry>
       <entry>
@@ -2085,6 +2096,7 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TC1" name="OutputCompareAInterruptEnable"/>
          <value>disabled</value>
+
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TC1" name="OutputCompareBInterruptEnable"/>
@@ -2157,6 +2169,7 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TC1" name="channelArequestedTimeout_tc16"/>
          <value>0 s</value>
+
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TC1" name="channelBInterruptEnable_tc16_freqGen"/>
@@ -2183,6 +2196,7 @@
          <value>0 s</value>
       </entry>
       <entry>
+
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TC1" name="channelBrequestedDC_tc16"/>
          <value>0</value>
       </entry>
@@ -2193,6 +2207,7 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TC1" name="channelBrequestedTimeout_tc16"/>
          <value>0 s</value>
+
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TC1" name="clockSelect"/>
@@ -2205,6 +2220,7 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TC1" name="inputCaptureInterruptEnable"/>
          <value>disabled</value>
+
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TC1" name="isDriverISR"/>
@@ -2221,6 +2237,7 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="TC1" name="waveformGeneration"/>
          <value>Fast PWM, TOP = ICR1</value>
+
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TC1" registerAlias="GTCCR" settingAlias="PSRSYNC" alias="disabled"/>
@@ -2377,6 +2394,7 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="TC1" registerAlias="OCRA"/>
          <value>0</value>
+
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="TC1" registerAlias="OCRB"/>
@@ -2389,6 +2407,7 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="TC1" registerAlias="TCCRB"/>
          <value>28</value>
+
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="TC1" registerAlias="TCCRC"/>
@@ -2405,6 +2424,7 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="TC1" registerAlias="TIMSK"/>
          <value>1</value>
+
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TC1" registerAlias="GTCCR" settingAlias="PSRSYNC"/>
@@ -2693,6 +2713,7 @@
          <hash>298dbbc36a31e5412956029d27d8f104302b14b83c5c497f952e26af615260fd</hash>
       </entry>
       <entry>
+
          <file>mcc_generated_files\config\clock_config.h</file>
          <hash>08747265d4beee15dcfe614e278a4cd5487c0122f4fd93c3a170890b58770497</hash>
       </entry>

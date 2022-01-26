@@ -48,6 +48,7 @@
 #define PD5_SetInverted() do { PORTD_PIN5CTRL  |= PORT_INVEN_bm; } while(0)
 #define PD5_ResetInverted() do { PORTD_PIN5CTRL  &= ~PORT_INVEN_bm; } while(0)
 
+<<<<<<< HEAD
 //get/set PB2 aliases
 #define PB2_SetHigh() do { PORTB |= 0x4; } while(0)
 #define PB2_SetLow() do { PORTB &= ~0x4; } while(0)
@@ -83,6 +84,19 @@
 #define PB0_ResetPullUp() do { PORTB &= ~0x1; } while(0)
 #define PB0_SetInverted() do { PORTB_PIN0CTRL  |= PORT_INVEN_bm; } while(0)
 #define PB0_ResetInverted() do { PORTB_PIN0CTRL  &= ~PORT_INVEN_bm; } while(0)
+=======
+//get/set PD6 aliases
+#define PD6_SetHigh() do { PORTD |= 0x40; } while(0)
+#define PD6_SetLow() do { PORTD &= ~0x40; } while(0)
+#define PD6_Toggle() do { PIND |= 0x40; } while(0)
+#define PD6_GetValue() (PIND & (0x1 << 6))
+#define PD6_SetDigitalInput() do { DDRD &= ~0x40; } while(0)
+#define PD6_SetDigitalOutput() do { DDRD |= 0x40; } while(0)
+#define PD6_SetPullUp() do { PORTD |= 0x40; } while(0)
+#define PD6_ResetPullUp() do { PORTD &= ~0x40; } while(0)
+#define PD6_SetInverted() do { PORTD_PIN6CTRL  |= PORT_INVEN_bm; } while(0)
+#define PD6_ResetInverted() do { PORTD_PIN6CTRL  &= ~PORT_INVEN_bm; } while(0)
+>>>>>>> main
 
 void PIN_MANAGER_Initialize();
 #endif /* PINS_H_INCLUDED */

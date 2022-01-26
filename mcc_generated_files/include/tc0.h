@@ -1,12 +1,3 @@
-/**
-  @Company
-    Microchip Technology Inc.
-
-  @Description
-    This Source file provides APIs.
-    Generation Information :
-    Driver Version    :   1.0.0
-*/
 /*
     (c) 2018 Microchip Technology Inc. and its subsidiaries. 
     
@@ -30,60 +21,35 @@
     SOFTWARE.
 */
 
+#ifndef TC0_H_INCLUDED
+#define TC0_H_INCLUDED
 
-#include "mcc.h"
+#include "../utils/compiler.h"
 
-/**
- * Initializes MCU, drivers and middleware in the project
-**/
-void SYSTEM_Initialize(void)
-{
-    PIN_MANAGER_Initialize();
-    CPU_Initialize();
-    WDT_Initialize();
-    TC1_Initialize();
-    CPUINT_Initialize();
-<<<<<<< HEAD
-=======
-    TC0_Initialize();
->>>>>>> main
-}
-
-ISR(WDT_vect)
-{
-    /* Insert your WDT interrupt handling code here */
-
-    /* The interrupt flag has to be cleared manually */
-    WDTCSR &= ~(1<<WDIF);
-}
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
- * \brief Initialize wdt interface
+ * \brief Initialize TC0 interface
+ *
+ * \return Initialization status.
  */
- 
-int8_t WDT_Initialize()
-{
-    //
-    WDTCSR = 0x00;
-
-	return 0;
-}
-/**
- * \brief Initialize cpu interface
- */
-
-int8_t CPU_Initialize()
-{
-    //
-    CLKPR = 0x00;
-        
-    //
-    SMCR = 0x00;  
-        
-    //
-    MCUCR = 0x00; 
-        
     
-    return 0;
+typedef void (*TC0_cb_t)(void);    
 
+int8_t TC0_Initialize();
+void TC0_SetOVFIsrCallback(TC0_cb_t cb);
+void TC0_SetCMPAIsrCallback(TC0_cb_t cb);
+void TC0_SetCMPBIsrCallback(TC0_cb_t cb);
+void TC0_EnableInterrupt(void);
+void TC0_DisableInterrupt(void);
+uint8_t TC0_ReadTimer(void);
+void TC0_WriteTimer(uint8_t timerVal);
+void TC0_ClearOverflowInterruptFlag(void);
+bool TC0_IsOverflowInterruptEnabled(void);
+#ifdef __cplusplus
 }
+#endif
+
+#endif /* TC0_H_INCLUDED */

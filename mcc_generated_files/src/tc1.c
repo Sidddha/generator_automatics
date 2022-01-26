@@ -22,6 +22,7 @@
 */
 
 #include "../include/tc1.h"
+<<<<<<< HEAD
 
 volatile uint16_t counter = 0;
 
@@ -35,10 +36,35 @@ void TC1_DefaultCAPTIsrCallback(void);
 void (*TC1_CAPT_isr_cb)(void) = &TC1_DefaultCAPTIsrCallback;
 
 void TC1_DefaultCOMPAIsrCallback(void)
+=======
+#include "../include/pin_manager.h"
+volatile uint16_t captured_events = 0;
+volatile uint16_t current_rpm = 0;
+
+void TC1_COMPAIsrCallback(void);
+void (*TC1_COMPA_isr_cb)(void) = &TC1_COMPAIsrCallback;
+void TC1_COMPBIsrCallback(void);
+void (*TC1_COMPB_isr_cb)(void) = &TC1_COMPBIsrCallback;
+void TC1_OVFIsrCallback(void);
+void (*TC1_OVF_isr_cb)(void) = &TC1_OVFIsrCallback;
+void TC1_CAPTIsrCallback(void);
+void (*TC1_CAPT_isr_cb)(void) = &TC1_CAPTIsrCallback;
+
+void TC1_COMPAIsrCallback(void)
+{
+//    TC1_DisableInterrupt();
+//    current_rpm = captured_events * 60;
+//    captured_events = 0;
+//    TC1_EnableInterrupt();
+}
+
+void TC1_COMPBIsrCallback(void)
+>>>>>>> main
 {
     //Add your ISR code here
 }
 
+<<<<<<< HEAD
 void TC1_DefaultCOMPBIsrCallback(void)
 {
     //Add your ISR code here
@@ -59,6 +85,24 @@ void TC1_DefaultCAPTIsrCallback(void)
     //Add your ISR code here
 }
 
+=======
+void TC1_OVFIsrCallback(void)
+{
+
+}
+
+void TC1_CAPTIsrCallback(void)
+{
+    captured_events++;
+    if (TIFR1 & (1 << OCF1A))
+    {
+        current_rpm = captured_events * 60;
+        captured_events = 0;
+        TIFR1 |= (0 << OCF1A);
+    }
+}
+
+>>>>>>> main
 void TC1_SetOVFIsrCallback(TC1_cb_t cb)
 {
     TC1_OVF_isr_cb = cb;
@@ -119,12 +163,17 @@ ISR(TIMER1_CAPT_vect)
 int8_t TC1_Initialize()
 {
     //Output Compare A
+<<<<<<< HEAD
     OCR1A = 0x00;
+=======
+    OCR1A = 0xF424;
+>>>>>>> main
 
     //Output Compare B
     OCR1B = 0x00;
 
     //Control Register A
+<<<<<<< HEAD
     TCCR1A = 0xA2;
 
     //Control Register B
@@ -132,12 +181,25 @@ int8_t TC1_Initialize()
 
     //Input Capture Register
     ICR1 = 0xF424;
+=======
+    TCCR1A = 0x00;
+
+    //Control Register B
+    TCCR1B = 0xCC;
+
+    //Input Capture Register
+    ICR1 = 0x00;
+>>>>>>> main
 
     //Input Capture Register
     GTCCR = 0x00;
 
     //Interrupt Register
+<<<<<<< HEAD
     TIMSK1 = 0x01;
+=======
+    TIMSK1 = 0x22;
+>>>>>>> main
 
     return 0;
 }

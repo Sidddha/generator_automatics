@@ -31,59 +31,38 @@
 */
 
 
-#include "mcc.h"
+#ifndef EXINT_H_INCLUDED
+#define EXINT_H_INCLUDED
+
+#include "../utils/compiler.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
- * Initializes MCU, drivers and middleware in the project
-**/
-void SYSTEM_Initialize(void)
-{
-    PIN_MANAGER_Initialize();
-    CPU_Initialize();
-    WDT_Initialize();
-    TC1_Initialize();
-    CPUINT_Initialize();
-<<<<<<< HEAD
-=======
-    TC0_Initialize();
->>>>>>> main
-}
+  @Summary
+    Initializes the EXINT_Initialize.
 
-ISR(WDT_vect)
-{
-    /* Insert your WDT interrupt handling code here */
+  @Description
+    This routine initializes the EXINT_Initialize.
+    This routine should only be called once during system initialization.
 
-    /* The interrupt flag has to be cleared manually */
-    WDTCSR &= ~(1<<WDIF);
-}
+  @Preconditions
+    None
 
-/**
- * \brief Initialize wdt interface
- */
- 
-int8_t WDT_Initialize()
-{
-    //
-    WDTCSR = 0x00;
-
-	return 0;
-}
-/**
- * \brief Initialize cpu interface
- */
-
-int8_t CPU_Initialize()
-{
-    //
-    CLKPR = 0x00;
-        
-    //
-    SMCR = 0x00;  
-        
-    //
-    MCUCR = 0x00; 
-        
+  @Param
+    None
     
-    return 0;
+   @Example
+    <code>
+    EXINT_Initialize();
+    </code>
+*/
+int8_t EXINT_0_Initialize(void);
 
+#ifdef __cplusplus
 }
+#endif
+
+#endif /* EXINT_H_INCLUDED */

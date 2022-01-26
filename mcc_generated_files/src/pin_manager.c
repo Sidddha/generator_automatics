@@ -39,9 +39,15 @@ void PIN_MANAGER_Initialize()
 {
     PORT_Initialize();     
     /* DIR Registers Initialization */
+<<<<<<< HEAD
     DDRB = 0x06;
     DDRC = 0x00;
     DDRD = 0x20;
+=======
+    DDRB = 0x00;
+    DDRC = 0x00;
+    DDRD = 0x60;
+>>>>>>> main
 
     /* OUT Registers Initialization */
     PORTB = 0x00;
