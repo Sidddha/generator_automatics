@@ -20,15 +20,10 @@
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
 */
-<<<<<<< HEAD
 #define F_CPU 16000000UL
 #include "mcc_generated_files/mcc.h"
 #include <util/delay.h>
-=======
 
-#include "mcc_generated_files/mcc.h"
-
->>>>>>> main
 /*
     Main application
 */
