@@ -32,7 +32,6 @@ int main(void)
     /* Initializes MCU, drivers and middleware */
     SYSTEM_Initialize();
 
-<<<<<<< HEAD
     while (1)
     {
 //        for (uint16_t i = 0; i < 1000; i++)
@@ -40,10 +39,7 @@ int main(void)
             OCR1A = 1250;
             OCR1B = 62;
 //        }
-=======
-    /* Replace with your application code */
-    while (1){
->>>>>>> main
+
     }
 }
 /**
