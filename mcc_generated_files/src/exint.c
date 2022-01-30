@@ -35,11 +35,11 @@
 
 int8_t EXINT_0_Initialize()
 {
-    //ISC1 VAL_0x03; ISC0 VAL_0x03; 
-   EICRA = 0x0F;
+    //ISC1 VAL_0x00; ISC0 VAL_0x03; 
+   EICRA = 0x03;
     
-    //INT1 disabled; INT0 disabled; 
-    EIMSK = 0x00;
+    //INT1 disabled; INT0 enabled; 
+    EIMSK = 0x01;
            
     return 0;
 }
