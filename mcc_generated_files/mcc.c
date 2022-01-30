@@ -42,11 +42,9 @@ void SYSTEM_Initialize(void)
     CPU_Initialize();
     WDT_Initialize();
     TC1_Initialize();
+    EXINT_0_Initialize();
     CPUINT_Initialize();
-<<<<<<< HEAD
-=======
     TC0_Initialize();
->>>>>>> main
 }
 
 ISR(WDT_vect)
