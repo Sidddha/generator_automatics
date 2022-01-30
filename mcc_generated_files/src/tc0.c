@@ -23,6 +23,8 @@
 
 #include "../include/tc0.h"
 
+volatile uint32_t counter = 0;
+volatile uint16_t rpm = 0;
 void TC0_DefaultCMPAIsrCallback(void);
 void (*TC0_CMPA_isr_cb)(void) = &TC0_DefaultCMPAIsrCallback;
 void TC0_DefaultCMPBIsrCallback(void);
@@ -42,7 +44,8 @@ void TC0_DefaultCMPBIsrCallback(void)
 
 void TC0_DefaultOVFIsrCallback(void)
 {
-    //Add your ISR code here
+    counter++;
+    if (cou)
 }
 
 void TC0_SetOVFIsrCallback(TC0_cb_t cb)
@@ -91,7 +94,7 @@ ISR(TIMER0_OVF_vect)
 int8_t TC0_Initialize()
 {
     //Compare A
-    OCR0A = 0x00;
+    OCR0A = 0xF4;
 
     //Compare B
     OCR0B = 0x00;
@@ -103,14 +106,14 @@ int8_t TC0_Initialize()
     //TSM disabled; PSRSYNC disabled; 
     GTCCR = 0x00;
 
-    //COMA 2; COMB 2; WGM 1; 
-    TCCR0A = 0xA1;
+    //COMA 0; COMB 0; WGM 2; 
+    TCCR0A = 0x02;
 
     //FOCA disabled; FOCB disabled; WGM disabled; CS VAL_0x05; 
     TCCR0B = 0x05;
 
-    //OCIEB enabled; OCIEA enabled; TOIE disabled; 
-    TIMSK0 = 0x06;
+    //OCIEB disabled; OCIEA disabled; TOIE enabled; 
+    TIMSK0 = 0x01;
 
     return 0;
 }
