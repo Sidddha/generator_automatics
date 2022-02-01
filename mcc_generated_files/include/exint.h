@@ -60,6 +60,7 @@ extern "C" {
     </code>
 */
 int8_t EXINT_0_Initialize(void);
+extern volatile uint16_t capture;
 
 #ifdef __cplusplus
 }
