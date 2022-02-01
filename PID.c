@@ -1,78 +1,157 @@
+/*	Floating point PID control loop for Microcontrollers
+	Copyright (C) 2015 Jesus Ruben Santa Anna Zamudio.
+
+	This program is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+	Author website: http://www.geekfactory.mx
+	Author e-mail: ruben at geekfactory dot mx
+ */
 #include "PID.h"
+#include "mcc_generated_files/include/tc0.h"
 
-void PIDController_Init(PIDController *pid) {
+pid_t pid_create(pid_t pid, float* in, float* out, float* set, float kp, float ki, float kd)
+{
+	pid->input = in;
+	pid->output = out;
+	pid->setpoint = set;
+	pid->automode = false;
 
-	/* Clear controller variables */
-	pid->integrator = 0.0f;
-	pid->prevError  = 0.0f;
+	pid_limits(pid, 0, 255);
 
-	pid->differentiator  = 0.0f;
-	pid->prevMeasurement = 0.0f;
+	// Set default sample time to 100 ms
+	pid->sampletime = 100;
 
-	pid->out = 0.0f;
+	pid_direction(pid, E_PID_DIRECT);
+	pid_tune(pid, kp, ki, kd);
 
+	pid->lasttime = millis() - pid->sampletime;
+
+	return pid;
 }
 
-float PIDController_Update(PIDController *pid, float setpoint, float measurement) {
+bool pid_need_compute(pid_t pid)
+{
+	// Check if the PID period has elapsed
+	return(millis() - pid->lasttime >= pid->sampletime) ? true : false;
+}
 
-	/*
-	* Error signal
-	*/
-    float error = setpoint - measurement;
+bool pid_compute(pid_t pid)
+{
+	// Check if control is enabled
+	if (!pid->automode)
+		return false;
+	
+	float in = *(pid->input);
+	// Compute error
+	float error = (*(pid->setpoint)) - in;
+	// Compute integral
+	pid->iterm += (pid->Ki * error);
+	if (pid->iterm > pid->omax)
+		pid->iterm = pid->omax;
+	else if (pid->iterm < pid->omin)
+		pid->iterm = pid->omin;
+	// Compute differential on input
+	float dinput = in - pid->lastin;
+	// Compute PID output
+	float out = pid->Kp * error + pid->iterm - pid->Kd * dinput;
+	// Apply limit to output value
+	if (out > pid->omax)
+		out = pid->omax;
+	else if (out < pid->omin)
+		out = pid->omin;
+	// Output to pointed variable
+	(*pid->output) = out;
+	// Keep track of some variables for next execution
+	pid->lastin = in;
+	pid->lasttime = millis();;
+    return 0;
+}
 
+void pid_tune(pid_t pid, float kp, float ki, float kd)
+{
+	// Check for validity
+	if (kp < 0 || ki < 0 || kd < 0)
+		return;
+	
+	//Compute sample time in seconds
+	float ssec = ((float) pid->sampletime) / ((float) 1000);
 
-	/*
-	* Proportional
-	*/
-    float proportional = pid->Kp * error;
+	pid->Kp = kp;
+	pid->Ki = ki * ssec;
+	pid->Kd = kd / ssec;
 
+	if (pid->direction == E_PID_REVERSE) {
+		pid->Kp = 0 - pid->Kp;
+		pid->Ki = 0 - pid->Ki;
+		pid->Kd = 0 - pid->Kd;
+	}
+}
 
-	/*
-	* Integral
-	*/
-    pid->integrator = pid->integrator + 0.5f * pid->Ki * pid->T * (error + pid->prevError);
+void pid_sample(pid_t pid, uint32_t time)
+{
+	if (time > 0) {
+		float ratio = (float) (time) / (float) pid->sampletime;
+		pid->Ki *= ratio;
+		pid->Kd /= ratio;
+		pid->sampletime = time;
+	}
+}
 
-	/* Anti-wind-up via integrator clamping */
-    if (pid->integrator > pid->limMaxInt) {
+void pid_limits(pid_t pid, float min, float max)
+{
+	if (min >= max) return;
+	pid->omin = min;
+	pid->omax = max;
+	//Adjust output to new limits
+	if (pid->automode) {
+		if (*(pid->output) > pid->omax)
+			*(pid->output) = pid->omax;
+		else if (*(pid->output) < pid->omin)
+			*(pid->output) = pid->omin;
 
-        pid->integrator = pid->limMaxInt;
+		if (pid->iterm > pid->omax)
+			pid->iterm = pid->omax;
+		else if (pid->iterm < pid->omin)
+			pid->iterm = pid->omin;
+	}
+}
 
-    } else if (pid->integrator < pid->limMinInt) {
+void pid_auto(pid_t pid)
+{
+	// If going from manual to auto
+	if (!pid->automode) {
+		pid->iterm = *(pid->output);
+		pid->lastin = *(pid->input);
+		if (pid->iterm > pid->omax)
+			pid->iterm = pid->omax;
+		else if (pid->iterm < pid->omin)
+			pid->iterm = pid->omin;
+		pid->automode = true;
+	}
+}
 
-        pid->integrator = pid->limMinInt;
+void pid_manual(pid_t pid)
+{
+	pid->automode = false;
+}
 
-    }
-
-
-	/*
-	* Derivative (band-limited differentiator)
-	*/
-		
-    pid->differentiator = -(2.0f * pid->Kd * (measurement - pid->prevMeasurement)	/* Note: derivative on measurement, therefore minus sign in front of equation! */
-                        + (2.0f * pid->tau - pid->T) * pid->differentiator)
-                        / (2.0f * pid->tau + pid->T);
-
-
-	/*
-	* Compute output and apply limits
-	*/
-    pid->out = proportional + pid->integrator + pid->differentiator;
-
-    if (pid->out > pid->limMax) {
-
-        pid->out = pid->limMax;
-
-    } else if (pid->out < pid->limMin) {
-
-        pid->out = pid->limMin;
-
-    }
-
-	/* Store error and measurement for later use */
-    pid->prevError       = error;
-    pid->prevMeasurement = measurement;
-
-	/* Return controller output */
-    return pid->out;
-
+void pid_direction(pid_t pid, enum pid_control_directions dir)
+{
+	if (pid->automode && pid->direction != dir) {
+		pid->Kp = (0 - pid->Kp);
+		pid->Ki = (0 - pid->Ki);
+		pid->Kd = (0 - pid->Kd);
+	}
+	pid->direction = dir;
 }
