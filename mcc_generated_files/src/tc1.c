@@ -23,8 +23,6 @@
 
 #include "../include/tc1.h"
 
-//volatile uint16_t counter = 0;
-
 void TC1_DefaultCOMPAIsrCallback(void);
 void (*TC1_COMPA_isr_cb)(void) = &TC1_DefaultCOMPAIsrCallback;
 void TC1_DefaultCOMPBIsrCallback(void);
@@ -46,19 +44,13 @@ void TC1_DefaultCOMPBIsrCallback(void)
 
 void TC1_DefaultOVFIsrCallback(void)
 {
-//    TIFR1 = 1 << TOV1; /*Clear Overflow Interrupt Flag*/
-//    counter++;
-//    if (counter >= 50)
-//    {
-//        counter = 0;
-//    }
+    //Add your ISR code here
 }
 
 void TC1_DefaultCAPTIsrCallback(void)
 {
     //Add your ISR code here
 }
-
 
 void TC1_SetOVFIsrCallback(TC1_cb_t cb)
 {
@@ -132,13 +124,13 @@ int8_t TC1_Initialize()
     TCCR1B = 0x1C;
 
     //Input Capture Register
-    ICR1 = 0xF424;
+    ICR1 = 0x4E2;
 
     //Input Capture Register
     GTCCR = 0x00;
 
     //Interrupt Register
-    TIMSK1 = 0x01;
+    TIMSK1 = 0x21;
 
     return 0;
 }

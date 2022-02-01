@@ -32,6 +32,7 @@
 
 
 #include "../include/exint.h"
+volatile uint16_t capture = 0;
 
 int8_t EXINT_0_Initialize()
 {
@@ -48,6 +49,7 @@ ISR(INT0_vect)
 {
     // Clear the interrupt flag
     EIFR &= ~(1 << INTF0);
+    capture++;
 }
 
 ISR(INT1_vect)

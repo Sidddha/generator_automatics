@@ -22,9 +22,14 @@
 */
 
 #include "../include/tc0.h"
+#include "../include/exint.h"
 
-volatile uint32_t counter = 0;
 volatile uint16_t rpm = 0;
+volatile uint16_t s = 0;
+//volatile uint8_t count = 0;
+//volatile uint16_t prev_result = 0;
+//volatile uint16_t sum = 0;
+//
 void TC0_DefaultCMPAIsrCallback(void);
 void (*TC0_CMPA_isr_cb)(void) = &TC0_DefaultCMPAIsrCallback;
 void TC0_DefaultCMPBIsrCallback(void);
@@ -32,9 +37,29 @@ void (*TC0_CMPB_isr_cb)(void) = &TC0_DefaultCMPBIsrCallback;
 void TC0_DefaultOVFIsrCallback(void);
 void (*TC0_OVF_isr_cb)(void) = &TC0_DefaultOVFIsrCallback;
 
+//uint16_t rpmAverage(uint16_t value)
+//{
+//
+//    sum += value;
+//    count++;
+//    if (count == 2) 
+//    {
+//        prev_result = sum / 2;
+//        sum = 0;
+//        count = 0;
+//    }
+//    return prev_result;
+//}
+
 void TC0_DefaultCMPAIsrCallback(void)
 {
-    //Add your ISR code here
+    s++;
+    if (s >= 64)
+    {
+        rpm = capture * 60;
+        capture = 0;
+        s = 0;
+    }
 }
 
 void TC0_DefaultCMPBIsrCallback(void)
@@ -44,8 +69,7 @@ void TC0_DefaultCMPBIsrCallback(void)
 
 void TC0_DefaultOVFIsrCallback(void)
 {
-    counter++;
-    if (cou)
+    //Add your ISR code here
 }
 
 void TC0_SetOVFIsrCallback(TC0_cb_t cb)
@@ -112,8 +136,8 @@ int8_t TC0_Initialize()
     //FOCA disabled; FOCB disabled; WGM disabled; CS VAL_0x05; 
     TCCR0B = 0x05;
 
-    //OCIEB disabled; OCIEA disabled; TOIE enabled; 
-    TIMSK0 = 0x01;
+    //OCIEB disabled; OCIEA enabled; TOIE disabled; 
+    TIMSK0 = 0x02;
 
     return 0;
 }
