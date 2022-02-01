@@ -48,6 +48,8 @@ uint8_t TC0_ReadTimer(void);
 void TC0_WriteTimer(uint8_t timerVal);
 void TC0_ClearOverflowInterruptFlag(void);
 bool TC0_IsOverflowInterruptEnabled(void);
+//uint16_t rpmAverage(uint16_t value);
+
 #ifdef __cplusplus
 }
 #endif
