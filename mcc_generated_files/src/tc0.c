@@ -22,14 +22,9 @@
 */
 
 #include "../include/tc0.h"
-#include "../include/exint.h"
 
-volatile uint16_t rpm = 0;
-volatile uint16_t s = 0;
-//volatile uint8_t count = 0;
-//volatile uint16_t prev_result = 0;
-//volatile uint16_t sum = 0;
-//
+volatile uint32_t ms = 0;
+
 void TC0_DefaultCMPAIsrCallback(void);
 void (*TC0_CMPA_isr_cb)(void) = &TC0_DefaultCMPAIsrCallback;
 void TC0_DefaultCMPBIsrCallback(void);
@@ -37,29 +32,14 @@ void (*TC0_CMPB_isr_cb)(void) = &TC0_DefaultCMPBIsrCallback;
 void TC0_DefaultOVFIsrCallback(void);
 void (*TC0_OVF_isr_cb)(void) = &TC0_DefaultOVFIsrCallback;
 
-//uint16_t rpmAverage(uint16_t value)
-//{
-//
-//    sum += value;
-//    count++;
-//    if (count == 2) 
-//    {
-//        prev_result = sum / 2;
-//        sum = 0;
-//        count = 0;
-//    }
-//    return prev_result;
-//}
+uint32_t millis()
+{
+    return ms;
+}
 
 void TC0_DefaultCMPAIsrCallback(void)
 {
-    s++;
-    if (s >= 64)
-    {
-        rpm = capture * 60;
-        capture = 0;
-        s = 0;
-    }
+    ms++;
 }
 
 void TC0_DefaultCMPBIsrCallback(void)
@@ -118,7 +98,7 @@ ISR(TIMER0_OVF_vect)
 int8_t TC0_Initialize()
 {
     //Compare A
-    OCR0A = 0xF4;
+    OCR0A = 0xFA;
 
     //Compare B
     OCR0B = 0x00;
@@ -133,8 +113,8 @@ int8_t TC0_Initialize()
     //COMA 0; COMB 0; WGM 2; 
     TCCR0A = 0x02;
 
-    //FOCA disabled; FOCB disabled; WGM disabled; CS VAL_0x05; 
-    TCCR0B = 0x05;
+    //FOCA disabled; FOCB disabled; WGM disabled; CS VAL_0x03; 
+    TCCR0B = 0x03;
 
     //OCIEB disabled; OCIEA enabled; TOIE disabled; 
     TIMSK0 = 0x02;
