@@ -1,6 +1,8 @@
-build/default/debug/mcc_generated_files/mcc.o.d \
- build/default/debug/mcc_generated_files/mcc.o: mcc_generated_files/mcc.c \
- mcc_generated_files/mcc.h mcc_generated_files/utils/compiler.h \
+build/default/production/mcc_generated_files/src/exint.o.d \
+ build/default/production/mcc_generated_files/src/exint.o: \
+ mcc_generated_files/src/exint.c \
+ mcc_generated_files/src/../include/exint.h \
+ mcc_generated_files/src/../include/../utils/compiler.h \
  c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\avr\io.h \
  c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\avr\sfr_defs.h \
  c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\inttypes.h \
@@ -16,19 +18,12 @@ build/default/debug/mcc_generated_files/mcc.o.d \
  c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\lib\gcc\avr\5.4.0\include\stdbool.h \
  c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\stdlib.h \
- mcc_generated_files/utils/interrupt_avr8.h \
- c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\avr\interrupt.h \
- mcc_generated_files/include/pin_manager.h \
- mcc_generated_files/include/port.h \
- mcc_generated_files/include/../utils/compiler.h \
- mcc_generated_files/include/cpuint.h \
- mcc_generated_files/include/../utils/atomic.h \
- mcc_generated_files/include/tc1.h \
- mcc_generated_files/config/clock_config.h
+ mcc_generated_files/src/../include/../utils/interrupt_avr8.h \
+ c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\avr\interrupt.h
 
-mcc_generated_files/mcc.h:
+mcc_generated_files/src/../include/exint.h:
 
-mcc_generated_files/utils/compiler.h:
+mcc_generated_files/src/../include/../utils/compiler.h:
 
 c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\avr\io.h:
 
@@ -60,20 +55,6 @@ c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\lib\gcc\avr\5.4.0\inclu
 
 c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\stdlib.h:
 
-mcc_generated_files/utils/interrupt_avr8.h:
+mcc_generated_files/src/../include/../utils/interrupt_avr8.h:
 
 c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\avr\interrupt.h:
-
-mcc_generated_files/include/pin_manager.h:
-
-mcc_generated_files/include/port.h:
-
-mcc_generated_files/include/../utils/compiler.h:
-
-mcc_generated_files/include/cpuint.h:
-
-mcc_generated_files/include/../utils/atomic.h:
-
-mcc_generated_files/include/tc1.h:
-
-mcc_generated_files/config/clock_config.h:

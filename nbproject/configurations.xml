@@ -17,6 +17,9 @@
           <itemPath>mcc_generated_files/include/rstctrl.h</itemPath>
           <itemPath>mcc_generated_files/include/port.h</itemPath>
           <itemPath>mcc_generated_files/include/protected_io.h</itemPath>
+          <itemPath>mcc_generated_files/include/tc0.h</itemPath>
+          <itemPath>mcc_generated_files/include/exint.h</itemPath>
+          <itemPath>mcc_generated_files/include/adc.h</itemPath>
         </logicalFolder>
         <logicalFolder name="utils" displayName="utils" projectFiles="true">
           <logicalFolder name="assembler" displayName="assembler" projectFiles="true">
@@ -32,6 +35,7 @@
         </logicalFolder>
         <itemPath>mcc_generated_files/mcc.h</itemPath>
       </logicalFolder>
+      <itemPath>PID.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -48,11 +52,15 @@
           <itemPath>mcc_generated_files/src/tc1.c</itemPath>
           <itemPath>mcc_generated_files/src/cpuint.c</itemPath>
           <itemPath>mcc_generated_files/src/pin_manager.c</itemPath>
+          <itemPath>mcc_generated_files/src/tc0.c</itemPath>
+          <itemPath>mcc_generated_files/src/exint.c</itemPath>
+          <itemPath>mcc_generated_files/src/adc.c</itemPath>
         </logicalFolder>
         <itemPath>mcc_generated_files/device_config.c</itemPath>
         <itemPath>mcc_generated_files/mcc.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
+      <itemPath>PID.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

@@ -42,6 +42,7 @@ void SYSTEM_Initialize(void)
     CPU_Initialize();
     WDT_Initialize();
     TC1_Initialize();
+    ADC_Initialize();
     EXINT_0_Initialize();
     CPUINT_Initialize();
     TC0_Initialize();

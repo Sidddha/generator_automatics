@@ -121,16 +121,16 @@ int8_t TC1_Initialize()
     TCCR1A = 0xA2;
 
     //Control Register B
-    TCCR1B = 0x1C;
+    TCCR1B = 0x1B;
 
     //Input Capture Register
-    ICR1 = 0x4E2;
+    ICR1 = 0x1388;
 
     //Input Capture Register
     GTCCR = 0x00;
 
     //Interrupt Register
-    TIMSK1 = 0x21;
+    TIMSK1 = 0x20;
 
     return 0;
 }

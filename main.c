@@ -70,6 +70,11 @@ int expAverage(int newVal) {
   return filVal;
 }
 
+uint32_t MAP(uint32_t au32_IN, uint32_t au32_INmin, uint32_t au32_INmax, uint32_t au32_OUTmin, uint32_t au32_OUTmax)
+{
+    return ((((au32_IN - au32_INmin)*(au32_OUTmax - au32_OUTmin))/(au32_INmax - au32_INmin)) + au32_OUTmin);
+}
+
 int main(void)
 {
     /* Initializes MCU, drivers and middleware */
@@ -85,22 +90,26 @@ int main(void)
 
     while (1)
     {
-        if (millis() - now >= 250)
-        {
-            rpm = capture * 240;
-            now = millis();
-        }
-        avgRPM = expAverage(rpm);
+//        if (millis() - now >= 250)
+//        {
+//            rpm = capture * 240;
+//            now = millis();
+//        }
+//        avgRPM = expAverage(rpm);
+//        
+        
         // Check if need to compute PID
-		if (pid_need_compute(pid)) 
-        {
-			// Read process feedback
-			input = avgRPM;
-			// Compute new PID output value
-			pid_compute(pid);
-			//Change actuator value
-		    OCR1A = output;
-		}
+//		if (pid_need_compute(pid)) 
+//        {
+//			// Read process feedback
+//			input = avgRPM;
+//			// Compute new PID output value
+//			pid_compute(pid);
+//			//Change actuator value
+//		    OCR1A = output;
+//		}
+        setpoint = MAP(ADC_GetConversion(7), 0, 1023, 250, 500);
+        OCR1A = setpoint;
     }
 }
 /**

@@ -22,9 +22,10 @@ build/default/production/mcc_generated_files/mcc.o.d \
  mcc_generated_files/include/pin_manager.h \
  mcc_generated_files/include/port.h \
  mcc_generated_files/include/../utils/compiler.h \
- mcc_generated_files/include/cpuint.h \
+ mcc_generated_files/include/tc0.h mcc_generated_files/include/cpuint.h \
  mcc_generated_files/include/../utils/atomic.h \
- mcc_generated_files/include/tc1.h \
+ mcc_generated_files/include/tc1.h mcc_generated_files/include/exint.h \
+ mcc_generated_files/include/adc.h \
  mcc_generated_files/config/clock_config.h
 
 mcc_generated_files/mcc.h:
@@ -71,10 +72,16 @@ mcc_generated_files/include/port.h:
 
 mcc_generated_files/include/../utils/compiler.h:
 
+mcc_generated_files/include/tc0.h:
+
 mcc_generated_files/include/cpuint.h:
 
 mcc_generated_files/include/../utils/atomic.h:
 
 mcc_generated_files/include/tc1.h:
+
+mcc_generated_files/include/exint.h:
+
+mcc_generated_files/include/adc.h:
 
 mcc_generated_files/config/clock_config.h:

@@ -1,7 +1,6 @@
-build/default/debug/mcc_generated_files/src/cpuint.o.d \
- build/default/debug/mcc_generated_files/src/cpuint.o: \
- mcc_generated_files/src/cpuint.c \
- mcc_generated_files/src/../include/cpuint.h \
+build/default/production/mcc_generated_files/src/tc0.o.d \
+ build/default/production/mcc_generated_files/src/tc0.o: \
+ mcc_generated_files/src/tc0.c mcc_generated_files/src/../include/tc0.h \
  mcc_generated_files/src/../include/../utils/compiler.h \
  c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\avr\io.h \
  c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\avr\sfr_defs.h \
@@ -19,10 +18,9 @@ build/default/debug/mcc_generated_files/src/cpuint.o.d \
  c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\lib\gcc\avr\5.4.0\include\stddef.h \
  c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\stdlib.h \
  mcc_generated_files/src/../include/../utils/interrupt_avr8.h \
- c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\avr\interrupt.h \
- mcc_generated_files/src/../include/../utils/atomic.h
+ c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\avr\interrupt.h
 
-mcc_generated_files/src/../include/cpuint.h:
+mcc_generated_files/src/../include/tc0.h:
 
 mcc_generated_files/src/../include/../utils/compiler.h:
 
@@ -59,5 +57,3 @@ c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\stdlib.h:
 mcc_generated_files/src/../include/../utils/interrupt_avr8.h:
 
 c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\avr\interrupt.h:
-
-mcc_generated_files/src/../include/../utils/atomic.h:

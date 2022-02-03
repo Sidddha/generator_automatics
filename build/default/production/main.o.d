@@ -20,13 +20,11 @@ build/default/production/main.o.d build/default/production/main.o: main.c \
  mcc_generated_files/include/pin_manager.h \
  mcc_generated_files/include/port.h \
  mcc_generated_files/include/../utils/compiler.h \
- mcc_generated_files/include/cpuint.h \
+ mcc_generated_files/include/tc0.h mcc_generated_files/include/cpuint.h \
  mcc_generated_files/include/../utils/atomic.h \
- mcc_generated_files/include/tc1.h \
- mcc_generated_files/config/clock_config.h \
- c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\util\delay.h \
- c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\util\delay_basic.h \
- c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\math.h
+ mcc_generated_files/include/tc1.h mcc_generated_files/include/exint.h \
+ mcc_generated_files/include/adc.h \
+ mcc_generated_files/config/clock_config.h PID.h
 
 mcc_generated_files/mcc.h:
 
@@ -72,16 +70,18 @@ mcc_generated_files/include/port.h:
 
 mcc_generated_files/include/../utils/compiler.h:
 
+mcc_generated_files/include/tc0.h:
+
 mcc_generated_files/include/cpuint.h:
 
 mcc_generated_files/include/../utils/atomic.h:
 
 mcc_generated_files/include/tc1.h:
 
+mcc_generated_files/include/exint.h:
+
+mcc_generated_files/include/adc.h:
+
 mcc_generated_files/config/clock_config.h:
 
-c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\util\delay.h:
-
-c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\util\delay_basic.h:
-
-c:\program\ files\microchip\avr8-gnu-toolchain-win32_x86\avr\include\math.h:
+PID.h:
