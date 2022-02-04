@@ -40,8 +40,8 @@ extern "C" {
 
 #include "utils/compiler.h"
 #include "include/pin_manager.h"
-#include "include/tc0.h"
 #include "include/cpuint.h"
+#include "include/tc0.h"
 #include "include/tc1.h"
 #include "include/exint.h"
 #include "include/adc.h"
