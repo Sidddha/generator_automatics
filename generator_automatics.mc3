@@ -96,11 +96,11 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="ADC" name="selectedChannels"/>
-         <value>{&quot;type&quot;:&quot;table&quot;,&quot;key&quot;:&quot;selectedChannels&quot;,&quot;dataArray&quot;: [{&quot;Pin&quot;:&quot;Internal Channel&quot;,&quot;Channel&quot;:&quot;0V_(GND)&quot;,&quot;Custom Name&quot;:&quot;channel_0V (GND)&quot;},{&quot;Pin&quot;:&quot;Internal Channel&quot;,&quot;Channel&quot;:&quot;Temperature_sensor&quot;,&quot;Custom Name&quot;:&quot;channel_Temperature sensor&quot;},{&quot;Pin&quot;:&quot;Internal Channel&quot;,&quot;Channel&quot;:&quot;Internal_Reference_(VBG)&quot;,&quot;Custom Name&quot;:&quot;channel_Internal Reference (VBG)&quot;}] }</value>
+         <value>{&quot;type&quot;:&quot;table&quot;,&quot;key&quot;:&quot;selectedChannels&quot;,&quot;dataArray&quot;: [{&quot;Pin&quot;:&quot;Internal Channel&quot;,&quot;Channel&quot;:&quot;Internal_Reference_(VBG)&quot;,&quot;Custom Name&quot;:&quot;channel_Internal Reference (VBG)&quot;},{&quot;Pin&quot;:&quot;Internal Channel&quot;,&quot;Channel&quot;:&quot;0V_(GND)&quot;,&quot;Custom Name&quot;:&quot;channel_0V (GND)&quot;},{&quot;Pin&quot;:&quot;Internal Channel&quot;,&quot;Channel&quot;:&quot;Temperature_sensor&quot;,&quot;Custom Name&quot;:&quot;channel_Temperature sensor&quot;}] }</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="ADC" name="voltageReference"/>
-         <value>AREF, Internal Vref turned off</value>
+         <value>Internal 1.1V Voltage Reference with external capacitor at AREF pin</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="ADC" registerAlias="ADCSRA" settingAlias="ADATE" alias="disabled"/>
@@ -344,7 +344,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="ADC" registerAlias="ADMUX"/>
-         <value>15</value>
+         <value>207</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="ADC" registerAlias="DIDR0"/>
@@ -392,7 +392,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="ADC" registerAlias="ADMUX" settingAlias="REFS"/>
-         <value>VAL_0x00</value>
+         <value>VAL_0x03</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="ADC" registerAlias="DIDR0" settingAlias="ADC0D"/>
@@ -2732,7 +2732,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="System Module" registerAlias="HIGH"/>
-         <value>223</value>
+         <value>255</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="System Module" registerAlias="LOW"/>
@@ -2764,7 +2764,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="HIGH" settingAlias="SPIEN"/>
-         <value>enabled</value>
+         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="HIGH" settingAlias="WDTON"/>
@@ -3661,12 +3661,12 @@
          <hash>9c850f91bcafb53b994d716e20d14ab5e346854dda52fcdd03aa45874d89ce9c</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\src\adc.c</file>
-         <hash>0ff72f531a3ccb364dbdf116d0226bd340d2e8b673107e8ec222684698ab6145</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\utils\interrupt_avr8.h</file>
          <hash>98adc596175f2e76d4d918685cf050032a3efb605901edb6be0a35dda05a57e9</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\src\adc.c</file>
+         <hash>c3e267c203e4762070e4a50c75c16c3b9c6e1884b3de528c362013551709a67a</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\include\exint.h</file>
@@ -3686,7 +3686,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\mcc.h</file>
-         <hash>27f05cc84a415ec33cfb060f15abd4e36d1f62d312218735fe944233cc9c4a2c</hash>
+         <hash>92be0c58d7922cea543853c3de42d8f9566157ac90571b3af865c93e1245cc4c</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\include\port.h</file>
@@ -3701,16 +3701,16 @@
          <hash>9a57d15cc1fc723b7401a7b8b8bc5bc5b201d6f2233cc4611bd85a76763b1d86</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\include\adc.h</file>
-         <hash>e8ecb904c7d676e71214c2460209754c52f4fe3694e0e11d32ff9c8d01f6addf</hash>
-      </entry>
-      <entry>
          <file>main.c</file>
          <hash>ad6433d2c98b42e7128f2ebaca15eb375df8a83f923bb0a884d7b0373577396a</hash>
       </entry>
       <entry>
+         <file>mcc_generated_files\include\adc.h</file>
+         <hash>e8ecb904c7d676e71214c2460209754c52f4fe3694e0e11d32ff9c8d01f6addf</hash>
+      </entry>
+      <entry>
          <file>mcc_generated_files\device_config.c</file>
-         <hash>4d8febe42053fa77ad525a9406b5cb95f34bf0fef91ef6b268563c4eede6d282</hash>
+         <hash>1e01ed4567aa6c46c8cb38fd652f2abac8be01ece3defb341e0c446a01d4ea2c</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\utils\utils.h</file>
