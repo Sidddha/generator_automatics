@@ -40,6 +40,6 @@
 FUSES = 
 {
 	.extended = 0x04,
-	.high = 0xDF,
+	.high = 0xFF,
 	.low = 0xC7,
 }; 
