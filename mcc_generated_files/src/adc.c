@@ -44,8 +44,8 @@ adc_irq_cb_t ADC_cb = NULL;
  */
 int8_t ADC_Initialize()
 {
-    //REFS VAL_0x00; ADLAR disabled; MUX ADC_GND; 
-    ADMUX = 0x0F;
+    //REFS VAL_0x03; ADLAR disabled; MUX ADC_GND; 
+    ADMUX = 0xCF;
 
     //ACME disabled; ADTS VAL_0x00; 
     ADCSRB = 0x00;
