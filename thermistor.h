@@ -5,8 +5,7 @@
  * Created on February 7, 2022, 10:02 PM
  */
 
-//#ifndef NTC_H
-//#define	NTC_H
+
 /**
  * Copyright (c) 2014 panStamp <contact@panstamp.com>
  * 
@@ -31,15 +30,18 @@
  * Creation date: 11/05/2014
  */
 
+ 
 #ifndef _THERMISTOR_H
 #define _THERMISTOR_H
-//
-//#include "Arduino.h"
 
 #define DEFAULT_NUM_SAMPLES  10
 #define DEFAULT_BCOEF        3950
 #define DEFAULT_NOMINAL_RES 10000
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+  
 class THERMISTOR
 {
   public:
@@ -85,6 +87,8 @@ class THERMISTOR
     int read(void);
 };
 
+#ifdef __cplusplus
+}
 #endif
 
 
