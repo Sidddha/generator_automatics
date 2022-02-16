@@ -124,7 +124,7 @@ int8_t TC1_Initialize()
     TCCR1B = 0x1B;
 
     //Input Capture Register
-    ICR1 = 0x1388;
+    ICR1 = 0x9C4;
 
     //Input Capture Register
     GTCCR = 0x00;

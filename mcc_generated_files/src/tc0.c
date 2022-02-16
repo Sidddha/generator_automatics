@@ -98,7 +98,7 @@ ISR(TIMER0_OVF_vect)
 int8_t TC0_Initialize()
 {
     //Compare A
-    OCR0A = 0xFA;
+    OCR0A = 0x7D;
 
     //Compare B
     OCR0B = 0x00;

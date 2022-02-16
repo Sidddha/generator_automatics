@@ -43,7 +43,7 @@ enum pid_control_directions {
 
 /**
  * Structure that holds PID all the PID controller data, multiple instances are
- * posible using different structures for each controller
+ * possible using different structures for each controller
  */
 struct pid_controller {
 	// Input, output and setpoint
@@ -84,11 +84,11 @@ extern "C" {
 	 *
 	 * @param pid A pointer to a pid_controller structure
 	 * @param in Pointer to float value for the process input
-	 * @param out Poiter to put the controller output value
+	 * @param out Pointer to put the controller output value
 	 * @param set Pointer float with the process setpoint value
 	 * @param kp Proportional gain
 	 * @param ki Integral gain
-	 * @param kd Diferential gain
+	 * @param kd Differential gain
 	 *
 	 * @return returns a pid_t controller handle
 	 */
